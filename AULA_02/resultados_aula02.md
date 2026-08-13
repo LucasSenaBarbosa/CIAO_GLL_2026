@@ -214,3 +214,16 @@ Desvio padrão : 1.03%
 
 # 21.	Resposta: “A heuristica gulosa e boa o suficiente para este problema? Em quais situacoes voce usaria ela e em quais preferiria gastar mais tempo para achar o otimo?”
 Neste cenário acima a heuristica gulosa, poderia não ser boa suficiente para este problema, pois neste cenário ela iria focar no item que tem mais valor e com isso ela poderia cometer um erro, ou seja, por ela ter escolhido o item de mais valor, ela poderia perder a chance de fazer uma combinação de itens, que seria melhor, pois heuristica gulosa ela é mais rápida porém ela não garante eficiência 100%. Já o ótimo seria o mais ideal por mais que houvesse mais tempo na análise, porém ele varia várias combinações sendo mais assertivo e podendo até mesmo colocando mais itens de forma otimizada.
+
+Relatório **LAB04**
+
+Atividade 4 - Problema: Lista de Compras com Orçamento Limitado
+1. Descrição clara do problema em linguagem natural
+O objetivo é montar uma lista de compras para o mês, selecionando itens disponíveis em um supermercado, de forma a não exceder um orçamento total pré-definido. Cada item tem um custo e uma 'utilidade' associada (que representa o quão desejável ou necessário o item é para o comprador). O problema consiste em escolher quais itens comprar para maximizar a utilidade total, respeitando o limite do orçamento.
+
+2. Modelagem Formal
+O que é uma solução (como você representa uma solução candidata)?
+Uma solução candidata pode ser representada como um vetor binário  X=(x1,x2,...,xn) , onde  n  é o número total de itens disponíveis para compra. Cada  xi  é 1 se o item  i  for incluído na lista de compras e 0 caso contrário.
+
+3. Classificação: você considera este problema “fácil” ou “difícil”? Justifique.
+Este problema é considerado difícil (NP-difícil). Ele é uma variação do famoso Problema da Mochila (Knapsack Problem). Embora existam algoritmos pseudo-polinomiais para o Problema da Mochila (como programação dinâmica), a complexidade desses algoritmos depende do tamanho do orçamento, e não do número de itens, o que os torna intratáveis para orçamentos muito grandes. Para instâncias gerais com muitos itens e orçamentos significativos, a busca exaustiva é impraticável, e encontrar a solução ótima requer algoritmos mais complexos ou heurísticas para soluções aproximadas.
