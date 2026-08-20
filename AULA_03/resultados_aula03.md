@@ -21,3 +21,5 @@ Houve uma maior variação nos picos de altas e baixas das médias e não teve m
 
 **Considerações**
 Observamos no gráfico que a cada mudança nos tópicos analisados como parâmetro, obtivemos variações na média do gráfico de convergência e ao alterar o parâmetro "ELITE", houve lacunas no gráfico de melhores indivíduos e também a constância da média do gráfico de convergência se transformou em uma flutuação de picos de altos e baixos.
+
+<img width="1825" height="661" alt="Captura de tela 2026-08-19 211150" src="https://github.com/user-attachments/assets/27b1ef45-d06c-4917-8098-116b491737da" />
