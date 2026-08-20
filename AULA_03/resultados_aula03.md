@@ -2,6 +2,9 @@ LAB **01**
 
 Na geração 8 foi obtido o melhor resultado com o binário 11111 que representa as 5 famílias com um resultado de 961 mediante a F(31)²=961
 
+<img width="1063" height="721" alt="image" src="https://github.com/user-attachments/assets/820f0744-7545-429b-91d5-0d9bb5816bed" />
+
+
 LAB **02**
 
 ==================================================
