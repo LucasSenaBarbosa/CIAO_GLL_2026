@@ -18,3 +18,6 @@ O gráfico da média permaneceu parecido com os altos e baixos e o gráfico de m
 
 4. Mude ELITE para 0. O que acontece?      
 Houve uma maior variação nos picos de altas e baixas das médias e não teve mais constância no gráfico de convergência, e no gráfico de melhor individuo tiveram lacunas vazias.
+
+**Considerações**
+Observamos no gráfico que a cada mudança nos tópicos analisados como parâmetro, obtivemos variações na média do gráfico de convergência e ao alterar o parâmetro "ELITE", houve lacunas no gráfico de melhores indivíduos e também a constância da média do gráfico de convergência se transformou em uma flutuação de picos de altos e baixos.
