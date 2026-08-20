@@ -4,4 +4,17 @@ Na geração 8 foi obtido o melhor resultado com o binário 11111 que representa
 
 LAB **02**
 
-      
+==================================================
+DESAFIO: Mude os parâmetros e veja o que acontece!
+==================================================
+1. Aumente a TAXA_MUT para 0.1. O que acontece?
+Ao mudar de 0.02 para 0.1 a média de mutação diminuiu.
+
+2. Diminua POPULACAO para 10. O que acontece?
+Ao mudar a população de 32 para 10 houve uma alteração na variação do gráfico de média(mais altos e baixos).
+
+3. Aumente GERACOES para 100. O que acontece?
+O gráfico da média permaneceu parecido com os altos e baixos e o gráfico de melhor se manteve constante.
+
+4. Mude ELITE para 0. O que acontece?      
+Houve uma maior variação nos picos de altas e baixas das médias e não teve mais constância no gráfico de convergência, e no gráfico de melhor individuo tiveram lacunas vazias.
