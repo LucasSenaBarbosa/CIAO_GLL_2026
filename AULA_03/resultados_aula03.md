@@ -26,3 +26,13 @@ Houve uma maior variação nos picos de altas e baixas das médias e não teve m
 Observamos no gráfico que a cada mudança nos tópicos analisados como parâmetro, obtivemos variações na média do gráfico de convergência e ao alterar o parâmetro "ELITE", houve lacunas no gráfico de melhores indivíduos e também a constância da média do gráfico de convergência se transformou em uma flutuação de picos de altos e baixos.
 
 <img width="1825" height="661" alt="Captura de tela 2026-08-19 211150" src="https://github.com/user-attachments/assets/27b1ef45-d06c-4917-8098-116b491737da" />
+
+LAB **03**
+
+**Considerações**
+Concluímos que a partir da geração 10 não houve quase nenhuma alteração pois se manteve constante da geração 10 até a 50.
+
+
+<img width="1756" height="666" alt="image" src="https://github.com/user-attachments/assets/828f3b16-a16e-4c7d-8c32-98cd562d8eb5" />
+
+        
