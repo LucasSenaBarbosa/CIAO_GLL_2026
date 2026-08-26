@@ -56,3 +56,8 @@ Para esta execução específica, a presença da Penalidade de Segurança: 5000.
 
 O algoritmo genético forneceu uma rota otimizada que balanceia as métricas de latência e perda de pacotes, ao mesmo tempo em que considera as penalizações de SLA e segurança. A rota encontrada é a que minimiza o valor da função de fitness, mesmo que isso inclua a aceitação da penalidade de segurança. Para evitar completamente nós não confiáveis, seria necessário reavaliar a topologia da rede, a disponibilidade de nós confiáveis ou ajustar os pesos e valores das penalizações para refletir uma prioridade maior na segurança em detrimento de outras métricas.
 
+<img width="796" height="230" alt="image" src="https://github.com/user-attachments/assets/449eafd7-bfc9-4898-b519-98b7a6009e85" />
+
+<img width="1037" height="570" alt="image" src="https://github.com/user-attachments/assets/a239823a-f3a0-444c-aa3e-63b345d20f6b" />
+
+
