@@ -56,7 +56,7 @@ Para esta execução específica, a presença da Penalidade de Segurança: 5000.
 
 O algoritmo genético forneceu uma rota otimizada que balanceia as métricas de latência e perda de pacotes, ao mesmo tempo em que considera as penalizações de SLA e segurança. A rota encontrada é a que minimiza o valor da função de fitness, mesmo que isso inclua a aceitação da penalidade de segurança. Para evitar completamente nós não confiáveis, seria necessário reavaliar a topologia da rede, a disponibilidade de nós confiáveis ou ajustar os pesos e valores das penalizações para refletir uma prioridade maior na segurança em detrimento de outras métricas.
 
-Desta forma, com este aplicativo sendo aplicado na integra como aprendemos em sala de aula com o professor, vimos a analise do algoritmo para achar a melhor rota obedecendo a risca as restrições embosta pelo desafio, otimizando e automatizando a rota colocando sempre na pauta a melhor rota possível e correta para chegar com o grau de elitismo em auto nível de confiabilidade.
+Desta forma, nesta aplicação sendo aplicado na integra como aprendemos em sala de aula com o professor, vimos a analise do algoritmo para achar a melhor rota obedecendo a risca as restrições embosta pelo desafio, otimizando e automatizando a rota colocando sempre na pauta a melhor rota possível e correta para chegar com o grau de elitismo em auto nível de confiabilidade.
 
 <img width="720" height="233" alt="image" src="https://github.com/user-attachments/assets/462d3cf3-2255-4f53-af6a-6839f515300c" />
 
