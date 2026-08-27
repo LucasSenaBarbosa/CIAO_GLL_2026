@@ -12,7 +12,9 @@
 
 **LAB04**
 
+O objetivo principal deste projeto foi desenvolver e aplicar um algoritmo genético para a seleção da rota de menor custo entre o Nó 0 (origem) e o Nó 11 (destino) em uma topologia de rede com 12 roteadores. A função de fitness foi construída para otimizar a rota considerando múltiplos atributos de enlace e nó: Latência (`ms`), Taxa de Perda de Pacotes (`%`) e Reputação de Segurança dos Roteadores. Penalizações foram incorporadas para desvios de SLA e para o uso de nós com reputação de segurança inadequada.
 
+Este relatório mostra a aplicação de um algoritmo genético para encontrar a rota de menor custo entre o Nó 0 e o Nó 11 em uma rede de 12 roteadores. A função de fitness foi otimizada para minimizar a latência e a perda de pacotes, enquanto penaliza rotas que utilizam roteadores com reputação de segurança inferior a 50. A melhor rota encontrada foi [0, 2, 4, 7, 10, 11], com uma latência de 148.37 ms, perda de pacotes de 14.35%, e um fitness final de 5291.84. A rota inclui roteadores não confiáveis (Nó 0 e Nó 4), resultando em uma penalização de segurança de 5000.00. A inclusão desses nós é justificada por um trade-off necessário para alcançar o menor fitness global, dadas as métricas de latência e perda dos enlaces, e a conectividade da rede.
 
 Desta forma, nesta aplicação sendo aplicado na integra como aprendemos em sala de aula com o professor, vimos a analise do algoritmo para achar a melhor rota obedecendo a risca as restrições embosta pelo desafio, otimizando e automatizando a rota colocando sempre na pauta a melhor rota possível e correta para chegar com o grau de elitismo em auto nível de confiabilidade.
 
