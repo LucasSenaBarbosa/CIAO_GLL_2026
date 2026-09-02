@@ -1,4 +1,405 @@
 """
+MISSÃO 1 - A PARTÍCULA SOLITÁRIA
+
+Objetivo: Entender como uma única partícula se move.
+Descrição: código que simula uma única partícula em 1D (uma dimensão). Complete a função de atualização de posição.
+"""
+CÓDIGO ABAIXO 
+
+# ============================================================
+# MISSÃO 1 - PSO BÁSICO: UMA ÚNICA PARTÍCULA
+# ============================================================
+
+# -------------------------
+# 1. IMPORTAÇÃO DAS BIBLIOTECAS
+# -------------------------
+
+import numpy as np                  # Trabalhar com números e arrays
+import matplotlib.pyplot as plt     # Criar os gráficos
+import random                       # Gerar números aleatórios
+from IPython.display import clear_output  # Limpar a saída do Colab
+import time                         # Criar pequenas pausas na animação
+
+
+# -------------------------
+# 2. CONFIGURAÇÕES DO PSO
+# -------------------------
+
+ITERACOES = 20       # Quantidade de vezes que a partícula irá se mover
+
+W = 0.8              # Peso da inércia
+C1 = 1.5             # Peso da experiência pessoal
+C2 = 1.5             # Peso da experiência global
+
+LIMITE = 10          # A partícula só pode ficar entre -10 e +10
+
+
+# -------------------------
+# 3. FUNÇÃO OBJETIVO
+# -------------------------
+
+def funcao(x):
+    """
+    Função que queremos minimizar.
+
+    f(x) = x²
+
+    O menor valor acontece quando x = 0.
+    Nesse ponto:
+    
+    f(0) = 0
+    """
+    
+    return x**2
+
+
+# -------------------------
+# 4. INICIALIZAÇÃO
+# -------------------------
+
+# Escolhe uma posição aleatória entre -10 e +10
+posicao = random.uniform(-LIMITE, LIMITE)
+
+# Escolhe uma velocidade inicial aleatória entre -1 e +1
+velocidade = random.uniform(-1, 1)
+
+# Calcula o fitness da posição inicial
+fitness = funcao(posicao)
+
+
+# -------------------------
+# 5. pBEST
+# -------------------------
+
+# Inicialmente, o melhor lugar encontrado
+# é a própria posição inicial.
+
+pBest_pos = posicao
+pBest_fit = fitness
+
+
+# -------------------------
+# 6. gBEST
+# -------------------------
+
+# Como temos apenas UMA partícula,
+# o melhor global é igual ao melhor pessoal.
+
+gBest_pos = posicao
+gBest_fit = fitness
+
+
+# -------------------------
+# 7. HISTÓRICO
+# -------------------------
+
+# Vamos guardar todas as posições
+# para podermos desenhar a trajetória.
+
+historico_pos = [posicao]
+
+# Vamos guardar também todos os valores de fitness.
+
+historico_fit = [fitness]
+
+
+# -------------------------
+# 8. PREPARANDO O GRÁFICO
+# -------------------------
+
+# Criamos os valores de x que serão usados
+# para desenhar a função inteira.
+
+x_plot = np.linspace(-LIMITE, LIMITE, 1000)
+
+# Calculamos f(x) para cada valor de x.
+
+y_plot = funcao(x_plot)
+
+
+# ============================================================
+# 9. INÍCIO DA SIMULAÇÃO
+# ============================================================
+
+print("=" * 60)
+print("PSO - PARTÍCULA SOLITÁRIA")
+print("=" * 60)
+
+print(f"\nPosição inicial: {posicao:.4f}")
+print(f"Velocidade inicial: {velocidade:.4f}")
+print(f"Fitness inicial: {fitness:.4f}")
+print(f"pBest inicial: {pBest_pos:.4f}")
+print(f"gBest inicial: {gBest_pos:.4f}")
+
+print("\nIniciando animação...\n")
+
+
+# ============================================================
+# 10. LOOP PRINCIPAL DO PSO
+# ============================================================
+
+for i in range(ITERACOES):
+
+    # --------------------------------------------------------
+    # 10.1 GERAR NÚMEROS ALEATÓRIOS
+    # --------------------------------------------------------
+
+    r1 = random.random()
+    r2 = random.random()
+
+
+    # --------------------------------------------------------
+    # 10.2 ATUALIZAR A VELOCIDADE
+    # --------------------------------------------------------
+
+    velocidade_nova = (
+        W * velocidade
+        + C1 * r1 * (pBest_pos - posicao)
+        + C2 * r2 * (gBest_pos - posicao)
+    )
+
+
+    # --------------------------------------------------------
+    # 10.3 ATUALIZAR A POSIÇÃO
+    # --------------------------------------------------------
+
+    posicao_nova = posicao + velocidade_nova
+
+
+    # --------------------------------------------------------
+    # 10.4 GARANTIR QUE A POSIÇÃO NÃO SAIA DOS LIMITES
+    # --------------------------------------------------------
+
+    posicao_nova = np.clip(
+        posicao_nova,
+        -LIMITE,
+        LIMITE
+    )
+
+
+    # --------------------------------------------------------
+    # 10.5 CALCULAR O NOVO FITNESS
+    # --------------------------------------------------------
+
+    fitness_novo = funcao(posicao_nova)
+
+
+    # --------------------------------------------------------
+    # 10.6 ATUALIZAR POSIÇÃO, VELOCIDADE E FITNESS
+    # --------------------------------------------------------
+
+    posicao = posicao_nova
+    velocidade = velocidade_nova
+    fitness = fitness_novo
+
+
+    # --------------------------------------------------------
+    # 10.7 VERIFICAR SE ENCONTRAMOS UM NOVO pBEST
+    # --------------------------------------------------------
+
+    if fitness < pBest_fit:
+
+        pBest_fit = fitness
+        pBest_pos = posicao
+
+
+    # --------------------------------------------------------
+    # 10.8 VERIFICAR SE ENCONTRAMOS UM NOVO gBEST
+    # --------------------------------------------------------
+
+    if fitness < gBest_fit:
+
+        gBest_fit = fitness
+        gBest_pos = posicao
+
+
+    # --------------------------------------------------------
+    # 10.9 GUARDAR HISTÓRICO
+    # --------------------------------------------------------
+
+    historico_pos.append(posicao)
+    historico_fit.append(fitness)
+
+
+    # ========================================================
+    # 11. MOSTRAR INFORMAÇÕES DA ITERAÇÃO
+    # ========================================================
+
+    clear_output(wait=True)
+
+    print("=" * 60)
+    print("PSO - PARTÍCULA SOLITÁRIA")
+    print("=" * 60)
+
+    print(f"\nIteração: {i + 1}/{ITERACOES}")
+
+    print(f"r1:             {r1:.4f}")
+    print(f"r2:             {r2:.4f}")
+
+    print(f"\nPosição:         {posicao:.6f}")
+    print(f"Velocidade:      {velocidade:.6f}")
+    print(f"Fitness:         {fitness:.6f}")
+
+    print(f"\npBest posição:   {pBest_pos:.6f}")
+    print(f"pBest fitness:   {pBest_fit:.6f}")
+
+    print(f"\ngBest posição:   {gBest_pos:.6f}")
+    print(f"gBest fitness:   {gBest_fit:.6f}")
+
+
+    # ========================================================
+    # 12. CRIAR O GRÁFICO
+    # ========================================================
+
+    plt.figure(figsize=(14, 5))
+
+
+    # --------------------------------------------------------
+    # GRÁFICO 1 - FUNÇÃO E PARTÍCULA
+    # --------------------------------------------------------
+
+    plt.subplot(1, 2, 1)
+
+    # Desenha a função f(x) = x²
+    plt.plot(
+        x_plot,
+        y_plot,
+        color="blue",
+        linewidth=2,
+        label="f(x) = x²"
+    )
+
+    # Desenha a trajetória da partícula
+    plt.plot(
+        historico_pos,
+        [funcao(p) for p in historico_pos],
+        color="orange",
+        linestyle="--",
+        marker="o",
+        markersize=5,
+        label="Trajetória"
+    )
+
+    # Desenha a posição atual
+    plt.scatter(
+        posicao,
+        fitness,
+        color="red",
+        s=200,
+        marker="*",
+        label="Partícula"
+    )
+
+    # Desenha o pBest
+    plt.scatter(
+        pBest_pos,
+        pBest_fit,
+        color="green",
+        s=100,
+        marker="X",
+        label="pBest"
+    )
+
+    # Linha vertical indicando o ótimo global x=0
+    plt.axvline(
+        x=0,
+        color="purple",
+        linestyle=":",
+        linewidth=2,
+        label="Ótimo global x=0"
+    )
+
+    plt.xlabel("Posição x")
+    plt.ylabel("Fitness f(x)")
+
+    plt.title(
+        f"Movimento da Partícula - Iteração {i + 1}"
+    )
+
+    plt.legend()
+    plt.grid(True, alpha=0.3)
+
+    plt.xlim(-LIMITE, LIMITE)
+    plt.ylim(0, LIMITE**2)
+
+
+    # --------------------------------------------------------
+    # GRÁFICO 2 - CONVERGÊNCIA
+    # --------------------------------------------------------
+
+    plt.subplot(1, 2, 2)
+
+    # Mostra a evolução do fitness
+    plt.plot(
+        range(len(historico_fit)),
+        historico_fit,
+        color="red",
+        marker="o",
+        linewidth=2
+    )
+
+    # Linha indicando o fitness ótimo
+    plt.axhline(
+        y=0,
+        color="green",
+        linestyle="--",
+        label="Fitness ótimo = 0"
+    )
+
+    plt.xlabel("Iteração")
+    plt.ylabel("Fitness")
+
+    plt.title("Convergência do PSO")
+
+    plt.grid(True, alpha=0.3)
+
+    plt.legend()
+
+    plt.ylim(0, LIMITE**2)
+
+
+    # Ajusta os gráficos
+    plt.tight_layout()
+
+    # Mostra o gráfico
+    plt.show()
+
+
+    # Pequena pausa para enxergarmos a animação
+    time.sleep(0.5)
+
+
+# ============================================================
+# 13. RESULTADO FINAL
+# ============================================================
+
+print("\n" + "=" * 60)
+print("RESULTADO FINAL")
+print("=" * 60)
+
+print(f"Posição final:  {posicao:.6f}")
+print(f"Fitness final:  {fitness:.6f}")
+
+print("\nMelhor posição encontrada:")
+print(f"pBest = {pBest_pos:.6f}")
+
+print(f"\nMelhor fitness encontrado:")
+print(f"pBest fitness = {pBest_fit:.6f}")
+
+print("\nÓtimo global conhecido:")
+print("x = 0.000000")
+print("f(x) = 0.000000")
+
+print(f"\nErro em relação ao ótimo:")
+print(f"{abs(pBest_pos):.6f}")
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+"""
 MISSÃO 3: OTIMIZAÇÃO LOGÍSTICA
 Problema: Encontrar a localização de 5 centros de distribuição
 que minimiza o custo de entrega para 50 clientes.
