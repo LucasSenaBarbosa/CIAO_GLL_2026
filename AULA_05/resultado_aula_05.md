@@ -1,3 +1,14 @@
+Missão 1 - A Partícula Solitária:
+
+A partícula encontrou o mínimo? (X) Sim ( ) Não
+
+Quantas iterações foram necessárias? 20
+
+Dificuldade: ( ) Fácil ( X ) Médio ( ) Difícil
+
+<img width="1371" height="765" alt="image" src="https://github.com/user-attachments/assets/ce3676e0-a41b-44e4-9664-ca68e98c1f6b" />
+
+
 Missão 3 - Problema Corporativo:
 
 Compare com o custo inicial: Melhorou? ( x ) Sim ( ) Não
