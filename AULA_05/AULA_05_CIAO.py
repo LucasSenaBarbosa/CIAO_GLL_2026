@@ -395,8 +395,188 @@ print(f"{abs(pBest_pos):.6f}")
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 
+"" MISSÃO 2: O ENXAME DE PARTÍCULAS
+Cenário: Enxame procurando o mínimo da função de Rosenbrock
+f(x,y) = (1-x)² + 100*(y-x²)² ""
+
+import numpy as np
+import matplotlib.pyplot as plt
+import random # Adicionado para criar_particula
+from matplotlib.animation import FuncAnimation
+
+# ==================== CONFIGURAÇÕES ====================
+NUM_PARTICULAS = 20
+ITERACOES = 50
+W = 0.7
+C1 = 1.8
+C2 = 1.8
+X_MIN, X_MAX = -2, 2
+Y_MIN, Y_MAX = -1, 3
+
+# ==================== FUNÇÃO OBJETIVO ====================
+def rosenbrock(posicao):
+    x, y = posicao
+    return (1 - x)**2 + 100 * (y - x**2)**2
+
+# ==================== FUNÇÕES A COMPLETAR ====================
+
+# TODO 1: Inicializar uma partícula
+def criar_particula():
+    """
+    Cria uma partícula com posição e velocidade aleatórias.
+
+    Retorna um dicionário com:
+    - posicao: array [x, y] aleatório dentro dos limites
+    - velocidade: array [vx, vy] aleatório entre -0.5 e 0.5
+    - fitness: fitness na posição atual
+    - pBest_pos: cópia da posição inicial
+    - pBest_fit: fitness inicial
+    """
+    posicao = np.array([
+        random.uniform(X_MIN, X_MAX),
+        random.uniform(Y_MIN, Y_MAX)
+    ])
+    # Limites de velocidade com base na descrição do problema
+    velocidade = np.array([
+        random.uniform(-0.5, 0.5),
+        random.uniform(-0.5, 0.5)
+    ])
+    fitness = rosenbrock(posicao)
+
+    return {
+        'posicao': posicao,
+        'velocidade': velocidade,
+        'fitness': fitness,
+        'pBest_pos': np.copy(posicao),
+        'pBest_fit': fitness
+    }
+
+# TODO 2: Atualizar a velocidade de uma partícula
+def atualizar_velocidade(particula, gBest_pos):
+    """
+    Atualiza a velocidade da partícula usando a fórmula do PSO.
+
+    Parâmetros:
+    - particula: dicionário da partícula
+    - gBest_pos: melhor posição global
+
+    Retorna: nova velocidade (array)
+    """
+    r1 = np.random.random(2)
+    r2 = np.random.random(2)
+
+    # Fórmula: v_novo = w*v + c1*r1*(pBest - pos) + c2*r2*(gBest - pos)
+    termo_inercia = W * particula['velocidade']
+    termo_cognitivo = C1 * r1 * (particula['pBest_pos'] - particula['posicao'])
+    termo_social = C2 * r2 * (gBest_pos - particula['posicao'])
+
+    nova_velocidade = termo_inercia + termo_cognitivo + termo_social
+
+    # Limitar velocidade
+    nova_velocidade = np.clip(nova_velocidade, -0.5, 0.5) # Valores de -0.5 a 0.5 como na inicialização
+
+    return nova_velocidade
+
+def atualizar_posicao(particula):
+    """
+    Atualiza a posição da partícula baseado na sua velocidade.
+    Garante que a posição fique dentro dos limites.
+    """
+    particula['posicao'] = particula['posicao'] + particula['velocidade']
+
+    # Manter as partículas dentro dos limites do mapa
+    particula['posicao'][0] = np.clip(particula['posicao'][0], X_MIN, X_MAX)
+    particula['posicao'][1] = np.clip(particula['posicao'][1], Y_MIN, Y_MAX)
+
+# ==================== INICIALIZAÇÃO DO ENXAME ====================
+enxame = [criar_particula() for _ in range(NUM_PARTICULAS)]
+
+# Inicializar gBest (melhor global)
+gbest_valor = float('inf')
+gbest_posicao = np.array([0.0, 0.0]) # Placeholder, será atualizado no loop
+
+for particula in enxame:
+    if particula['pBest_fit'] < gbest_valor:
+        gbest_valor = particula['pBest_fit']
+        gbest_posicao = np.copy(particula['pBest_pos'])
+
+# Lista para armazenar o histórico do melhor fitness global
+historico_gbest_fitness = []
+
+# ==================== CONFIGURAÇÃO DA ANIMAÇÃO ====================
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.set_title("Otimização por Enxame de Partículas (PSO) - Rosenbrock")
+ax.set_xlim(X_MIN, X_MAX)
+ax.set_ylim(Y_MIN, Y_MAX)
+
+# Desenhando o mapa de contorno da função de Rosenbrock
+x_grid = np.linspace(X_MIN, X_MAX, 100)
+y_grid = np.linspace(Y_MIN, Y_MAX, 100)
+X_mesh, Y_mesh = np.meshgrid(x_grid, y_grid)
+Z = rosenbrock([X_mesh, Y_mesh])
+contour = ax.contourf(X_mesh, Y_mesh, Z, levels=50, cmap='viridis', alpha=0.6)
+plt.colorbar(contour, ax=ax, label='Valor da Função (Menor é Melhor)')
+
+# Elementos gráficos que serão atualizados
+initial_positions_array = np.array([p['posicao'] for p in enxame])
+scatter = ax.scatter(initial_positions_array[:, 0], initial_positions_array[:, 1], color='red', marker='o', edgecolors='white', s=50, label='Partículas')
+gbest_marker, = ax.plot(gbest_posicao[0], gbest_posicao[1], marker='*', color='yellow', markersize=15, linestyle='None', label='Melhor do Bando')
+ax.legend()
+
+# ==================== O MOTOR DO ALGORITMO (ATUALIZAÇÃO) ====================
+def atualizar(frame):
+    global gbest_valor, gbest_posicao
+
+    for i in range(NUM_PARTICULAS):
+        particula = enxame[i]
+
+        # 1. Atualizar Velocidade (usando a nova função)
+        particula['velocidade'] = atualizar_velocidade(particula, gbest_posicao)
+
+        # 2. Atualizar Posição
+        atualizar_posicao(particula)
+
+        # 3. Avaliar nova posição
+        valor_atual = rosenbrock(particula['posicao'])
+        particula['fitness'] = valor_atual # Atualizar fitness atual
+
+        # Atualizar memória pessoal (pBest)
+        if valor_atual < particula['pBest_fit']:
+            particula['pBest_fit'] = valor_atual
+            particula['pBest_pos'] = np.copy(particula['posicao'])
+
+            # Atualizar memória do bando (gBest)
+            if valor_atual < gbest_valor:
+                gbest_valor = valor_atual
+                gbest_posicao = np.copy(particula['posicao'])
+
+    # Armazenar o melhor fitness global desta iteração
+    historico_gbest_fitness.append(gbest_valor)
+
+    # Atualizar o gráfico
+    current_positions_array = np.array([p['posicao'] for p in enxame])
+    scatter.set_offsets(current_positions_array)
+    gbest_marker.set_data([gbest_posicao[0]], [gbest_posicao[1]])
+    ax.set_title(f"PSO - Iteração: {frame+1}/{ITERACOES} | Melhor Valor: {gbest_valor:.4f}")
+
+    return scatter, gbest_marker,
+
+# Criar a animação
+anim = FuncAnimation(fig, atualizar, frames=ITERACOES, interval=150, blit=False, repeat=False)
+
+plt.show()
+
+plt.figure(figsize=(10, 6))
+plt.plot(historico_gbest_fitness, color='blue', linewidth=2)
+plt.title('Evolução do Melhor Fitness Global (Rosenbrock Function)')
+plt.xlabel('Iteração')
+plt.ylabel('Melhor Fitness Global')
+plt.grid(True)
+plt.yscale('log') # Usar escala logarítmica para melhor visualização se os valores variarem muito
+plt.show()
 
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 """
