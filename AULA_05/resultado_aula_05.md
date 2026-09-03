@@ -14,6 +14,7 @@ Foi implementado a função de criação de partícula aleatória, a atualizaç�
 
 <img width="761" height="535" alt="image" src="https://github.com/user-attachments/assets/77795b2c-c4be-48b1-8b43-336128a88ad1" />
 
+<img width="967" height="540" alt="image" src="https://github.com/user-attachments/assets/8ee4f9ac-7709-42ed-8677-aa4420712c30" />
 
 **Missão 3 - Problema Corporativo:**
 
