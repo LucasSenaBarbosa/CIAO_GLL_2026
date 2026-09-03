@@ -48,6 +48,7 @@ Instruções: Após completar as 4 missões, preencha este relatório com suas o
 PARTE 1: O QUE VOCÊ APRENDEU?
 
 1. Explique com suas palavras o que é o PSO e como ele funciona.
+O PSO é um algoritmo que busca a melhor otimização ou uma boa solução para um problema, ele foi inspirado em um cardume de peixes ou em um bando de pássaros e funciona de forma parecida pois busca o melhor individuo entre eles. 
 
 2. Qual a diferença entre pBest e gBest? Por que ambos são importantes?
    Resposta: pBest pelo que eu entendi que ele pega o melhor resultado encontrado pelo individuo (de forma individual / singular), e o gBest ele pelo que eu entendi ele pega o melhor resultado de forma global, ou seja neste caso existe uma pluralidade, ou seja a uma combinação de vários fatores ou indivíduos para chegar no melhor resultado amplamente. Os dois na minha forma de pensar é muito importante pois dependendo do objetivo e do problema proposto você consegue aplicar da melhor forma seja de forma singular que necessitará de mais iterações/tentativas ou de forma plural/global que agiliza a forma de calcular e resolver o problema deixando mais otimizado e assertivo, em ambos o objetivo sempre será chegar o mais próximo do Ideal ótimo.
