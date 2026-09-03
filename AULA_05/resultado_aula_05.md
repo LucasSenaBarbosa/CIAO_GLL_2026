@@ -40,3 +40,14 @@ Pior configuração encontrada: w=0.7, c1=1.8, c2=1.8, partículas=60
 Dificuldade: ( ) Fácil (X) Médio ( ) Difícil
 
 <img width="1074" height="716" alt="image" src="https://github.com/user-attachments/assets/4de36aad-5de3-4cdd-8ee9-2bc7dc3b1318" />
+
+RELATÓRIO FINAL PSO
+Instruções: Após completar as 4 missões, preencha este relatório com suas observações, dificuldades e impressões.
+
+
+PARTE 1: O QUE VOCÊ APRENDEU?
+
+1. Explique com suas palavras o que é o PSO e como ele funciona.
+
+2. Qual a diferença entre pBest e gBest? Por que ambos são importantes?
+   Resposta: pBest pelo que eu entendi que ele pega o melhor resultado encontrado pelo individuo (de forma individual / singular), e o gBest ele pelo que eu entendi ele pega o melhor resultado de forma global, ou seja neste caso existe uma pluralidade, ou seja a uma combinação de vários fatores ou indivíduos para chegar no melhor resultado amplamente. Os dois na minha forma de pensar é muito importante pois dependendo do objetivo e do problema proposto você consegue aplicar da melhor forma seja de forma singular que necessitará de mais iterações/tentativas ou de forma plural/global que agiliza a forma de calcular e resolver o problema deixando mais otimizado e assertivo, em ambos o objetivo sempre será chegar o mais próximo do Ideal ótimo.
