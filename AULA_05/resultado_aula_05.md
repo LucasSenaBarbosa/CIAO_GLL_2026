@@ -10,7 +10,7 @@ Dificuldade: ( ) Fácil ( X ) Médio ( ) Difícil
 
 **MISSÃO 2 - O ENXAME (MÚLTIPLAS PARTÍCULAS)**
 
-O enxame encontrou o mínimo global? (x) Sim ( ) Não
+O enxame encontrou o mínimo global? ( ) Sim (x) Não
 
 Compare com a Missão 1: O enxame foi mais rápido? (x) Sim ( ) Não
 
