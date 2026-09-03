@@ -10,6 +10,8 @@ Dificuldade: ( ) Fácil ( X ) Médio ( ) Difícil
 
 **MISSÃO 2 - O ENXAME (MÚLTIPLAS PARTÍCULAS)**
 
+Foi implementado a função de criação de partícula aleatória, a atualização de velocidade foi configurada para fica entre um intervalo aleatório entre -0,5 e 0,5 em X e Y, 
+
 <img width="761" height="535" alt="image" src="https://github.com/user-attachments/assets/77795b2c-c4be-48b1-8b43-336128a88ad1" />
 
 
