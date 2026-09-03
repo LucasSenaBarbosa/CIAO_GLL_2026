@@ -25,3 +25,13 @@ Dificuldade: ( ) Fácil ( x ) Médio ( ) Difícil
 
 <img width="1097" height="733" alt="image" src="https://github.com/user-attachments/assets/1dd60716-4c6b-4ad5-9443-2646775c9d9b" />
 
+
+**Missão 4 - Otimização de Parâmetros:**
+
+Melhor configuração encontrada: w=0.7, c1=1.8, c2=2.5, partículas=30
+
+Pior configuração encontrada: w=0.7, c1=1.8, c2=1.8, partículas=60
+
+Dificuldade: ( ) Fácil (X) Médio ( ) Difícil
+
+<img width="1074" height="716" alt="image" src="https://github.com/user-attachments/assets/4de36aad-5de3-4cdd-8ee9-2bc7dc3b1318" />
