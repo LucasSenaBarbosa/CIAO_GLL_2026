@@ -47,7 +47,7 @@ Instruções: Após completar as 4 missões, preencha este relatório com suas o
 
 PARTE 1: O QUE VOCÊ APRENDEU?
 
-1. Explique com suas palavras o que é o PSO e como ele funciona.
+1. Explique com suas palavras o que é o PSO e como ele funciona? 
 O PSO é um algoritmo que busca a melhor otimização ou uma boa solução para um problema, ele foi inspirado em um cardume de peixes ou em um bando de pássaros e funciona de forma parecida pois busca o melhor individuo entre eles. 
 
 2. Qual a diferença entre pBest e gBest? Por que ambos são importantes?
