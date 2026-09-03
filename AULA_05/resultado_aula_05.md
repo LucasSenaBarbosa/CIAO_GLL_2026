@@ -12,9 +12,9 @@ Dificuldade: ( ) Fácil ( X ) Médio ( ) Difícil
 
 O enxame encontrou o mínimo global? (x) Sim ( ) Não
 
-Compare com a Missão 1: O enxame foi mais rápido? ( ) Sim ( ) Não
+Compare com a Missão 1: O enxame foi mais rápido? (x) Sim ( ) Não
 
-Dificuldade: ( ) Fácil ( ) Médio ( ) Difícil
+Dificuldade: (x) Fácil ( ) Médio ( ) Difícil
 
 <img width="761" height="535" alt="image" src="https://github.com/user-attachments/assets/77795b2c-c4be-48b1-8b43-336128a88ad1" />
 
