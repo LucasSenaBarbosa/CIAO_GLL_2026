@@ -1091,3 +1091,31 @@ A influencia aumenta
 
 Perda da Memória Coletiva: O feromônio depositado pelas formigas nas iterações anteriores é destruído quase que imediatamente antes de ser reforçado. A colônia perde a capacidade de acumular aprendizado ao longo do tempo.Comportamento Quase Aleatório (Busca Cega): Sem a retenção do feromônio para orientar a preferência pelos caminhos mais promissores, as formigas voltam a escolher rotas baseando-se praticamente apenas na atratividade inicial (custo do enlace, controlado pelo $\beta$). O algoritmo passa a se comportar como uma sequência de buscas aleatórias independentes a cada iteração.Dificuldade de Convergência e Instabilidade: A curva de convergência se torna instável ou "estagna" precocemente em níveis subótimos, pois os caminhos bons não conseguem se destacar do restante do grafo. As formigas não entram em consenso sobre a rota ideal.
 
+======================================================================================================================================
+
+**LAB 03**
+
+<img width="737" height="418" alt="image" src="https://github.com/user-attachments/assets/f565943c-2bc1-4b44-a829-11baf43579f2" />
+
+<img width="965" height="464" alt="image" src="https://github.com/user-attachments/assets/30ed4a99-a067-42fb-a664-78fa16cc3fa8" />
+
+<img width="680" height="521" alt="image" src="https://github.com/user-attachments/assets/af8ddf23-5437-48a6-a8c4-84aeb43802b7" />
+
+
+1 - Por que a fórmula da atratividade utiliza 1 / custo em vez de utilizar diretamente o custo?
+
+RESPOSTA: 
+
+Por que utilizamos o 1 na atratividade para deixa os caminhos menores ou mais baratos mais atrativos em vez de deixar um caminho que seria longo mais atrativo sendo que não é o que queremos e sim o oposto por exemplo m caminho com custo de 2 tem uma atratividade de 0.5 e Um caminho com custo de 1 tem uma atratividade de 1.0.
+
+2 - O que acontece com a atratividade quando uma rota recebe mais feromônio?
+
+RESPOSTA: 
+
+Quando a rota recebe mais feromônios a atratividade aumenta sendo assim, quanto mais feromônios mais a rota fica atrativa para as formigas e assim tem mais chances de serem escolhidas.
+
+3 - Por que a função construir_rota() precisa impedir que a formiga visite novamente um nó que já está na rota?
+
+RESPOSTA: 
+
+Pois evita ciclos infinitos e possibilita que as formigas percorram todas as rotas e escolha a melhor rota além de ajudar na eficiência do código e ajudar a ter resposta simples.
