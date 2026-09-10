@@ -1124,3 +1124,23 @@ Pois evita ciclos infinitos e possibilita que as formigas percorram todas as rot
 #LAB 04
 
 <img width="768" height="544" alt="image" src="https://github.com/user-attachments/assets/e7e1a934-1186-415e-a939-ecab711640d0" />
+
+Questões finais:
+
+1 - Explique, com suas palavras, como o feromônio ajuda o ACO a aprender quais caminhos são melhores.
+
+RESPOSTA: 
+
+Em nosso raciocínio o feromônio ajuda a atrair as formigas da colônia para um caminho/rota, ou seja o feromônio pode atuar como se fosse uma memória que fica sempre pronta a mostrar o melhor caminho e faz com que as demais formigas consigam ser atraídas/envolvidas nesta rota otimizada pelo algoritmo com o melhor custo e distância. Com isso este feromônio ajuda a ACO a aprender as melhores rotas por que ele só será emitido na melhor rota analisada pela colônia, e as rotas ruim logo serão evaporadas, para que não fique na memória e não prejudique a colônia de formigas a tomarem a pior decisão.
+
+2 - Qual é a diferença entre explorar novos caminhos e aproveitar caminhos que já demonstraram ser bons?
+
+RESPOSTA:
+
+Em nosso raciocínio explorar novos caminhos significa tentar alternativas que ainda não foram muito utilizadas, buscando descobrir uma solução melhor, com melhor custo, melhor distância e etc. Aproveitar caminhos já conhecidos significa dar preferência às rotas que já apresentaram bons resultados e possuem maior quantidade de feromônio, pois assim ficará guardado na memória e assim, a colônia sempre identificará pela concentração maior de feromônio neste caminho já conhecido. Com isso concluímos que o "ACO" precisa equilibrar essas duas estratégias, pois explorar permite encontrar novas soluções analisando sempre o que melhor para a colônia, enquanto aproveitar permite utilizar as soluções que já demonstraram ser boas, que ficaram na memória através do seu feromônio que estará envolvendo as formigas.
+
+3 - Se você precisasse melhorar o desempenho desse ACO para uma rede muito maior, qual parâmetro ou parte do algoritmo você investigaria primeiro? Justifique.
+
+RESPOSTA:
+
+Entramo na conclusão que usaríamos o parâmetro de rede muito maior, nós investigaríamos primeiro o número de formigas (NUM_FORMIGAS). Isso porque uma rede maior possui muito mais possibilidades de caminhos, e também otimizaria a análise de forma mais eficiente com mais rotas e custos analisados, já em outro cenário se colocássemos como parâmetro com poucas formigas, o algoritmo poderia não explorar uma quantidade suficiente de alternativas, ou seja, poderia ser levado a um chute de rota melhor, ou então não teria tanta informação necessária para orientar e tomar a melhor decisão. Por tanto nós concluímos que aumentar o número de formigas pode melhorar a exploração da rede (pluralidade) e aumentar a chance de encontrar boas rotas. Porém, também seria necessário observar o tempo de execução, pois mais formigas significam mais cálculos e ai neste caso teríamos que otimizar e levar em consideração a melhor rota/distância, melhor custo e melhor tempo para um melhor trajeto do ponto de origem até o ponto de destino/chegada.
