@@ -1116,6 +1116,11 @@ Quando a rota recebe mais feromônios a atratividade aumenta sendo assim, quanto
 
 3 - Por que a função construir_rota() precisa impedir que a formiga visite novamente um nó que já está na rota?
 
+
 RESPOSTA: 
 
 Pois evita ciclos infinitos e possibilita que as formigas percorram todas as rotas e escolha a melhor rota além de ajudar na eficiência do código e ajudar a ter resposta simples.
+
+#LAB 04
+
+<img width="768" height="544" alt="image" src="https://github.com/user-attachments/assets/e7e1a934-1186-415e-a939-ecab711640d0" />
