@@ -890,9 +890,22 @@ Depois responda às questões abaixo:
 
 1. Por que o ACO utiliza várias formigas em vez de apenas uma formiga procurando a melhor rota? Explique qual é a importância de explorar diferentes caminhos.
 
+RESPOSTA: 
+
+Olhando para a aula de hoje ao entender sobre o ACO (OTIMIZAÇÃO DE COLÔNIA DE FORMIGAS), nós entendemos que este ACO utiliza várias formigas ao invés de uma, para otimizar a rota e subsequente a rota melhor que a colônia de formigas irá prosseguir, pois pelo Raciocínio que o professor nos passou se fosse somente uma formiga, está formiga devido sua limitação numérica (singular) poderia de uma forma mais fácil cair ou seguir uma rota ruim. Na nossa opinião como um Grupo (Luis/Gustavo/Lucas) entendemos que o ACO auxilia e assim tem como importância a otimização de rota, pois como estamos falando de colônias, ou seja vários seres vivos, a forma de análise de rota se expande e melhora a análise sendo mais assertiva para que todos os indivíduos da colônia tenham a conclusão da melhor rota, tanto em questão de distância como também em melhor custo para sair do ponto Origem e chegar ao ponto de destino.
+
 2. Por que uma rota de menor custo recebe mais feromônio? Explique como essa regra influencia o comportamento das próximas formigas.
 
+RESPOSTA: 
+
+Muito interessante esta pergunta, nós entendemos que a rota maior ela recebe menos feromônio devido a rota maior ela ser menos favorável para e pior em otimização, com isso ela se torna um caminho ruim, por isso as formigas enviaram menos feromônio entre si, por que elas entenderam que a rota e ruim e que não valerá a pena a emissão de feromônio, pois o custo é ruim. Já em outro cenário que é da rota otimizada, ou seja, a que possui menor custo então essa rota receberá mais feromônio, por que a colônia de formigas irá identificar de forma mais otimização e correta esta melhor rota com o melhor custo e elevará a emissão do feromônio para que as demais formigas da colônia entendam que é mais vantajoso e atrativo a rota e assim siga conforme a colônia para esta rota de melhor custo, distância e etc.
+
+
 3. O que poderia acontecer se não existisse evaporação do feromônio? Explique por que manter para sempre as primeiras informações encontradas poderia prejudicar a busca por soluções melhores.
+
+RESPOSTA: 
+
+Entendendo esta questão nós entramos na seguinte conclusão: que se o feromônio não fosse evaporado ele poderia influenciar de forma negativamente nas próximas analises da colônia de formigas, ou seja, o rastro dele poderia impactar de forma negativa o resultado final e a otimização ficaria influenciada em uma rota ruim e de custos elevados (não vantajosos para a colônia). Com isso entendemos que manter as primeiras informações encontradas poderia sim prejudicar a busca por soluções melhores, por que se o feromônio não evaporasse, ele poderia assim influenciar/atraindo a colônia para aquela rota antiga que não seria de melhor custo, distância e etc, ou seja, não traria benefícios para a colônia em um todo, pois ela poderia focar em uma só rota, ou na primeira rota analisada, colocando em xeque a análise. Até mesmo poderíamos falar que se o feromônio não evaporasse não haveria algoritmo, pois sempre esta rota estaria lincado/escolhida a uma rota antiga para sempre.
 
 
 
