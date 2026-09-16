@@ -43,6 +43,14 @@ Isso reduz a exploração individual das partículas e aumenta a influência do 
 
 R: O parâmetro de inércia w controla quanto da velocidade anterior da partícula é mantido na próxima atualização.
 
+# LAB 04
+
+<img width="552" height="115" alt="image" src="https://github.com/user-attachments/assets/6805d170-9162-4ff1-becd-e98421299466" />
+
+1 - Por que a evaporação do feromônio é necessária no algoritmo ACO?
+Ela impede a estagnação das rotas, ajuda no esquecimento de resultados obsoletos além de quando é reduzida a quantidade de feromônios faz com que sejam explorados outros caminhos
+
+
 Um valor maior de w tende a manter as partículas em movimento por mais tempo, favorecendo a exploração de diferentes regiões do espaço de busca.
 
 Um valor menor de w reduz a influência da velocidade anterior, favorecendo movimentos mais controlados em direção às melhores posições encontradas.
