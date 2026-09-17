@@ -7,9 +7,13 @@ Questões Técnicas — LAB 01
 
 Questão 01:
 
+1 - Como o uso da busca local 2-opt afeta o equilíbrio entre Exploration e Exploitation na busca de caminhos?
+
 Resposta: "Pelo que entendemos o  ACO explora diferentes caminhos, para que a colônia encontre a melhor rota e inalando feromônio para a melhor, para que as demais formigas consigam seguir esta rota correta, enquanto com o 2-opt pega esses caminhos e tenta melhorá-los localmente, ou seja ele dá um refino na analise, portanto, o 2-opt aumenta a Exploitation que é no nosso entendimento é esse polimento/refino na análise, sem eliminar a Exploration que no nosso entendimento é a exploração para melhores rotas realizada pelas formigas."
 
 Questão 02: 
+
+2 - O que aconteceria com a convergência do algoritmo se a taxa de evaporação (rho) fosse definida em 0.0 (sem evaporação)?
 
 Resposta: "Pelo que entendemos com rho = 0, o feromônio nunca evapora, fazendo com que as escolhas antigas tenham influência permanente, isso seria ruim por que se uma formiga encontrar uma rota ruim essa mesma rota influenciará as outras formigas por que ficará na memória; isso reduz a exploração de novos caminhos e pode causar uma convergência prematura para uma solução que não necessariamente é a ótima impactando o negativamente o Exploitation."
 
