@@ -43,16 +43,20 @@ Isso reduz a exploração individual das partículas e aumenta a influência do 
 
 R: O parâmetro de inércia w controla quanto da velocidade anterior da partícula é mantido na próxima atualização.
 
-# LAB 04
-
-<img width="552" height="115" alt="image" src="https://github.com/user-attachments/assets/6805d170-9162-4ff1-becd-e98421299466" />
-
-1 - Por que a evaporação do feromônio é necessária no algoritmo ACO?
-Ela impede a estagnação das rotas, ajuda no esquecimento de resultados obsoletos além de quando é reduzida a quantidade de feromônios faz com que sejam explorados outros caminhos
-
-
 Um valor maior de w tende a manter as partículas em movimento por mais tempo, favorecendo a exploração de diferentes regiões do espaço de busca.
 
 Um valor menor de w reduz a influência da velocidade anterior, favorecendo movimentos mais controlados em direção às melhores posições encontradas.
 
 Assim, w ajuda a controlar o equilíbrio entre exploração do espaço de busca e intensificação em regiões promissoras.
+
+# LAB 04
+
+<img width="552" height="115" alt="image" src="https://github.com/user-attachments/assets/6805d170-9162-4ff1-becd-e98421299466" />
+
+1 - Por que a evaporação do feromônio é necessária no algoritmo ACO?
+Ela impede a estagnação das rotas, ajuda no esquecimento de resultados obsoletos além de quando é reduzida a quantidade de feromônios faz com que sejam explorados outros caminhos e ela se adapta permitindo que o feromônio se adeque as melhores soluções que estão sendo descobertas.
+
+2 - O que ocorreria em grafos complexos sem ela?Qual a relação matemática entre a latência de um enlace e sua atratividade inicial (eta) para as formigas?
+O algoritmo se convergiria para uma solução sub ótima ou seja uma solução local e não global, a exploração de novas rotas seria mínima e sem a função limpar o algoritmo não conseguiria chegar nas melhores soluções facilmente além da incapacidade de se ajustar para achar um resultado melhor logo no inicio.
+
+
