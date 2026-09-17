@@ -90,10 +90,13 @@ RESPOSTA: O algoritmo se convergiria para uma solução sub ótima ou seja uma s
 
 
 Questões Técnicas — LAB 05
+
 1 - Qual a diferença fundamental de conceito entre um Algoritmo Genético Puro e um Algoritmo Memético?
-A principal diferença é que o algoritmo memético foca em mecanismos de busca local ou seja em intensificação já o Genético puro foca em recombinação dos algoritmos.
+
+RESPOSTA: A principal diferença é que o algoritmo memético foca em mecanismos de busca local ou seja em intensificação já o Genético puro foca em recombinação dos algoritmos.
 
 2 - Em termos de custo computacional, qual o impacto de executar a busca local sobre todos os indivíduos de uma população a cada geração?
-Executar a busca local sobre todos os indivíduos de uma população a cada geração tem um impacto computacional significativamente alto pois tem um aumento da complexibilidade por geração.
+
+RESPOSTA: Executar a busca local sobre todos os indivíduos de uma população a cada geração tem um impacto computacional significativamente alto pois tem um aumento da complexibilidade por geração.
 
 
