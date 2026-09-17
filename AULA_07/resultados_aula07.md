@@ -59,6 +59,7 @@ RESPOSTA: Se c1 = 0, a componente cognitiva desaparece. Isso significa que as pa
 Nesse caso, o movimento passa a depender principalmente da inércia e da componente social, que direciona as partículas para a melhor posição encontrada pelo enxame (gbest).
 
 Isso reduz a exploração individual das partículas e aumenta a influência do comportamento coletivo.
+
 2 - Qual a função do parâmetro de Inércia (w) na busca por mínimos globais?  
 
 RESPOSTA: O parâmetro de inércia w controla quanto da velocidade anterior da partícula é mantido na próxima atualização.
@@ -82,5 +83,17 @@ Ela impede a estagnação das rotas, ajuda no esquecimento de resultados obsolet
 
 2 - O que ocorreria em grafos complexos sem ela?Qual a relação matemática entre a latência de um enlace e sua atratividade inicial (eta) para as formigas?
 RESPOSTA: O algoritmo se convergiria para uma solução sub ótima ou seja uma solução local e não global, a exploração de novas rotas seria mínima e sem a função limpar o algoritmo não conseguiria chegar nas melhores soluções facilmente além da incapacidade de se ajustar para achar um resultado melhor logo no inicio.
+
+# LAB 05
+
+<img width="752" height="45" alt="image" src="https://github.com/user-attachments/assets/fae0c0fd-5486-4bdc-9585-e68c6f86f6d0" />
+
+
+Questões Técnicas — LAB 05
+1 - Qual a diferença fundamental de conceito entre um Algoritmo Genético Puro e um Algoritmo Memético?
+A principal diferença é que o algoritmo memético foca em mecanismos de busca local ou seja em intensificação já o Genético puro foca em recombinação dos algoritmos.
+
+2 - Em termos de custo computacional, qual o impacto de executar a busca local sobre todos os indivíduos de uma população a cada geração?
+Executar a busca local sobre todos os indivíduos de uma população a cada geração tem um impacto computacional significativamente alto pois tem um aumento da complexibilidade por geração.
 
 
