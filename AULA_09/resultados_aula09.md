@@ -1,3 +1,28 @@
+lab01_aula099
+
+Respostas:
+
+LAB01 
+
+RESPOSTAS: 
+
+<img width="780" height="517" alt="image" src="https://github.com/user-attachments/assets/f7f32d6f-6905-44ea-bbed-25247232b3ac" />
+<img width="709" height="443" alt="image" src="https://github.com/user-attachments/assets/8c879e75-34d5-4d0f-a02a-5e27d5c08158" />
+
+Verificamos após executar o programa, foi possível observar o funcionamento de um sistema de controle fuzzy aplicado a um ventilador através da temperatura e da velocidade de rotação do ventilador. O sistema utiliza a temperatura como variável de entrada e a velocidade do ventilador como variável de saída.
+A temperatura foi dividida em três conjuntos fuzzy: frio, morno e quente. Da mesma forma, a velocidade do ventilador foi dividida em três conjuntos: baixa, média e alta.
+Neste sistema requerido nesta atividade o sistema utiliza regras do tipo SE... ENTÃO.... Por exemplo: se a temperatura estiver fria, o ventilador deve funcionar em velocidade baixa; se estiver morna, a velocidade deve ser média; e se estiver quente, ou seja a velocidade do ventilador aumentará mediante o valor da temperatura, quanto maior for o calor, mais rápido o ventilador girará, se a temperatura cada vez diminuir (Ficar mais Frio), consequentemente o ventilador girará de forma mais lenta.  
+Pelo que entemos nesta aula e com esta atividade, uma característica da lógica fuzzy é que ela não trabalha apenas com decisões rígidas de "sim" ou "não". Uma temperatura pode possuir diferentes graus de pertinência nos conjuntos fuzzy. Dessa forma, quando a temperatura está em uma região de transição, como entre morno e quente, mais de uma regra pode contribuir para o resultado final, sendo assim podemos ter várias variáveis possiveis.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 lab03_aula09
 
 # Definição do problema
