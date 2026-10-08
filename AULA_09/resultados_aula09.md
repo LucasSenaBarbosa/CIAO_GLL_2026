@@ -34,10 +34,13 @@ lab02_aula09
  5) Teste (0, 0), (10, 10), (5, 5): o comportamento é o que você esperava?
  Sim, o comportamento é o esperado, pois (0, 0) resulta em gorjeta baixa, (10, 10) em gorjeta alta e (5, 5) em gorjeta média.
 
-
+SERVÇO
 <img width="640" height="480" alt="Figure_1 servico" src="https://github.com/user-attachments/assets/a8e65bd1-ce44-4f47-b738-16c41222b8b4" />
+EXELENTE
 <img width="640" height="480" alt="Figure_1 exelente" src="https://github.com/user-attachments/assets/bff6920e-39cb-4e0f-bcec-1a92a0142af6" />
+GORJETA
 <img width="1536" height="752" alt="Figure_3 gorjeta" src="https://github.com/user-attachments/assets/ae890c84-ec2a-469d-90bc-d1d2befc7f64" />
+
 <img width="1117" height="457" alt="image" src="https://github.com/user-attachments/assets/2a72f792-72d2-4d3d-bb10-e0ce81836075" />
 
 
