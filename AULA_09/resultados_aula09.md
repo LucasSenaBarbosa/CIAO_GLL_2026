@@ -16,7 +16,9 @@ Pelo que entemos nesta aula e com esta atividade, uma característica da lógica
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-lab02_aula09
+# lab02_aula09
+
+RESPOSTAS
 
  1) Troque a regra 2 por:  servico["medio"] & comida["medio"]
    O que mudou no resultado para (7, 3)? Por quê?
