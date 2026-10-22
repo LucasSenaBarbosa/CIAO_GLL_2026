@@ -1,10 +1,7 @@
-# -*- coding: utf-8 -*-
+
 """
 AULA 10 - Motor de Inferência Mamdani e Superfície 3D (Sprint 2 da AC-3)
 Disciplina: Inteligência Computacional
-
-Versão com scikit-fuzzy (skfuzzy.control). Feita para rodar no Google Colab:
-cole tudo numa célula e execute. A primeira parte instala as bibliotecas se faltarem.
 
 Sistema: Impacto (0-100 %) x Explorabilidade (0-10) -> Urgência (0-100 %)
 """
@@ -30,10 +27,10 @@ import os
 import numpy as np
 import matplotlib
 try:
-    get_ipython()            # Colab/Jupyter: mostra os gráficos na célula
+    get_ipython()            
     EM_NOTEBOOK = True
 except NameError:
-    matplotlib.use("Agg")    # fora do notebook: apenas salva os arquivos
+    matplotlib.use("Agg")    
     EM_NOTEBOOK = False
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
@@ -72,7 +69,7 @@ def criar_sistema(critica="trimf", defuzz="centroid"):
     explor["moderada"] = fuzz.trimf(explor.universe, [2, 5, 8])
     explor["alta"] = fuzz.trimf(explor.universe, [6, 10, 10])
 
-    # Saída (o enunciado não fixa os conjuntos de Urgência; estes são os escolhidos)
+    # Saída 
     urgencia["baixa"] = fuzz.trimf(urgencia.universe, [0, 0, 30])
     urgencia["media"] = fuzz.trimf(urgencia.universe, [15, 40, 65])
     urgencia["alta"] = fuzz.trimf(urgencia.universe, [50, 75, 100])
