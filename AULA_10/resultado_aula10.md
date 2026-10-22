@@ -1,190 +1,358 @@
 
-"""
-AULA 10 - Motor de Inferência Mamdani e Superfície 3D (Sprint 2 da AC-3)
-Disciplina: Inteligência Computacional
-
-Sistema: Impacto (0-100 %) x Explorabilidade (0-10) -> Urgência (0-100 %)
-"""
-
-# ----------------------------------------------------------------------------
-# 0) Instalação automática das bibliotecas (funciona em .py e em célula do Colab)
-# ----------------------------------------------------------------------------
-import subprocess
-import sys
-
-def instalar_se_necessario():
-    pacotes = {"skfuzzy": "scikit-fuzzy", "numpy": "numpy", "matplotlib": "matplotlib"}
-    for modulo, pacote in pacotes.items():
-        try:
-            __import__(modulo)
-        except ImportError:
-            print(f"Instalando {pacote} ...")
-            subprocess.check_call([sys.executable, "-m", "pip", "install", "-q", pacote])
-
-instalar_se_necessario()
+# ============================================================
+# AULA 10 - MOTOR DE INFERENCIA MAMDANI
+# Arquivo: lab01_aula10.py
+# Disciplina: Inteligencia Computacional
+# ============================================================
 
 import os
 import numpy as np
-import matplotlib
-try:
-    get_ipython()            
-    EM_NOTEBOOK = True
-except NameError:
-    matplotlib.use("Agg")    
-    EM_NOTEBOOK = False
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
 
-SAIDA = "AULA_10"
-os.makedirs(SAIDA, exist_ok=True)
+# ------------------------------------------------------------
+# 1. PASTA PARA OS ARQUIVOS GERADOS
+# ------------------------------------------------------------
 
+PASTA = "/content/AULA_10"
+os.makedirs(PASTA, exist_ok=True)
 
-def mostrar():
-    if EM_NOTEBOOK:
-        plt.show()
+# ------------------------------------------------------------
+# 2. DEFINICAO DAS VARIAVEIS
+# ------------------------------------------------------------
 
+# Impacto: de 0 a 100
+impacto = ctrl.Antecedent(np.arange(0, 101, 1), "impacto")
 
-# ----------------------------------------------------------------------------
-# 1) Sistema Mamdani (função fábrica: gera o sistema para cada configuração)
-# ----------------------------------------------------------------------------
-def criar_sistema(critica="trimf", defuzz="centroid"):
+# Explorabilidade: de 0 a 10
+explorabilidade = ctrl.Antecedent(
+    np.arange(0, 10.01, 0.1), "explorabilidade"
+)
+
+# Urgencia: de 0 a 100
+urgencia = ctrl.Consequent(np.arange(0, 101, 1), "urgencia")
+
+# ------------------------------------------------------------
+# 3. FUNCOES DE PERTINENCIA DAS ENTRADAS
+# ------------------------------------------------------------
+
+# Impacto: Baixo, Medio e Alto
+impacto["baixo"] = fuzz.trimf(impacto.universe, [0, 0, 40])
+impacto["medio"] = fuzz.trimf(impacto.universe, [20, 50, 80])
+impacto["alto"] = fuzz.trimf(impacto.universe, [60, 100, 100])
+
+# Explorabilidade: Baixa, Moderada e Alta
+explorabilidade["baixa"] = fuzz.trapmf(
+    explorabilidade.universe, [0, 0, 2, 4]
+)
+explorabilidade["moderada"] = fuzz.trimf(
+    explorabilidade.universe, [2, 5, 8]
+)
+explorabilidade["alta"] = fuzz.trapmf(
+    explorabilidade.universe, [6, 8, 10, 10]
+)
+
+# ------------------------------------------------------------
+# 4. FUNCOES DE PERTINENCIA DA SAIDA
+# ------------------------------------------------------------
+
+# Tres primeiras categorias iguais nos dois experimentos.
+urgencia["baixa"] = fuzz.trimf(
+    urgencia.universe, [0, 0, 30]
+)
+urgencia["media"] = fuzz.trimf(
+    urgencia.universe, [15, 40, 65]
+)
+urgencia["alta"] = fuzz.trimf(
+    urgencia.universe, [45, 70, 90]
+)
+
+# Abordagem A: urgencia critica com trapezio na borda superior.
+# O maximo de pertinencia fica concentrado em 100.
+urgencia["critica"] = fuzz.trapmf(
+    urgencia.universe, [70, 100, 100, 100]
+)
+
+# ------------------------------------------------------------
+# 5. MATRIZ COMPLETA DE REGRAS 3 X 3
+# ------------------------------------------------------------
+
+regras = [
+    # Impacto baixo
+    ctrl.Rule(
+        impacto["baixo"] & explorabilidade["baixa"],
+        urgencia["baixa"]
+    ),
+    ctrl.Rule(
+        impacto["baixo"] & explorabilidade["moderada"],
+        urgencia["baixa"]
+    ),
+    ctrl.Rule(
+        impacto["baixo"] & explorabilidade["alta"],
+        urgencia["media"]
+    ),
+
+    # Impacto medio
+    ctrl.Rule(
+        impacto["medio"] & explorabilidade["baixa"],
+        urgencia["media"]
+    ),
+    ctrl.Rule(
+        impacto["medio"] & explorabilidade["moderada"],
+        urgencia["alta"]
+    ),
+    ctrl.Rule(
+        impacto["medio"] & explorabilidade["alta"],
+        urgencia["alta"]
+    ),
+
+    # Impacto alto
+    ctrl.Rule(
+        impacto["alto"] & explorabilidade["baixa"],
+        urgencia["critica"]
+    ),
+    ctrl.Rule(
+        impacto["alto"] & explorabilidade["moderada"],
+        urgencia["critica"]
+    ),
+    ctrl.Rule(
+        impacto["alto"] & explorabilidade["alta"],
+        urgencia["critica"]
+    ),
+]
+
+# ------------------------------------------------------------
+# 6. FUNCAO PARA CRIAR E EXECUTAR O SISTEMA
+# ------------------------------------------------------------
+
+def criar_sistema(metodo="centroid"):
     """
-    critica: 'trimf'  -> Urgência Crítica triangular        (base)
-             'trapmf' -> Urgência Crítica trapezoidal        (Abordagem A)
-    defuzz:  'centroid' ou 'mom'                             (Abordagem B = 'mom')
+    Cria um sistema Mamdani com o metodo escolhido:
+    'centroid' ou 'mom'.
     """
-    # Universos
-    impacto = ctrl.Antecedent(np.arange(0, 100.01, 0.5), "impacto")
-    explor = ctrl.Antecedent(np.arange(0, 10.001, 0.05), "explorabilidade")
-    urgencia = ctrl.Consequent(np.arange(0, 100.01, 0.5), "urgencia", defuzzify_method=defuzz)
+    urgencia.defuzzify_method = metodo
 
-    # Entradas (conforme a matriz da aula)
-    impacto["baixo"] = fuzz.trimf(impacto.universe, [0, 0, 40])
-    impacto["medio"] = fuzz.trimf(impacto.universe, [20, 50, 80])
-    impacto["alto"] = fuzz.trimf(impacto.universe, [60, 100, 100])
+    controle = ctrl.ControlSystem(regras)
+    simulador = ctrl.ControlSystemSimulation(controle)
 
-    explor["baixa"] = fuzz.trimf(explor.universe, [0, 0, 4])
-    explor["moderada"] = fuzz.trimf(explor.universe, [2, 5, 8])
-    explor["alta"] = fuzz.trimf(explor.universe, [6, 10, 10])
-
-    # Saída 
-    urgencia["baixa"] = fuzz.trimf(urgencia.universe, [0, 0, 30])
-    urgencia["media"] = fuzz.trimf(urgencia.universe, [15, 40, 65])
-    urgencia["alta"] = fuzz.trimf(urgencia.universe, [50, 75, 100])
-    if critica == "trapmf":
-        urgencia["critica"] = fuzz.trapmf(urgencia.universe, [70, 90, 100, 100])
-    else:
-        urgencia["critica"] = fuzz.trimf(urgencia.universe, [70, 100, 100])
-
-    # Matriz de regras 3x3 (9 regras, sem lacunas de cobertura)
-    regras = [
-        ctrl.Rule(impacto["baixo"] & explor["baixa"],    urgencia["baixa"]),
-        ctrl.Rule(impacto["baixo"] & explor["moderada"], urgencia["baixa"]),
-        ctrl.Rule(impacto["baixo"] & explor["alta"],     urgencia["media"]),
-
-        ctrl.Rule(impacto["medio"] & explor["baixa"],    urgencia["media"]),
-        ctrl.Rule(impacto["medio"] & explor["moderada"], urgencia["alta"]),
-        ctrl.Rule(impacto["medio"] & explor["alta"],     urgencia["alta"]),
-
-        ctrl.Rule(impacto["alto"] & explor["baixa"],     urgencia["critica"]),
-        ctrl.Rule(impacto["alto"] & explor["moderada"],  urgencia["critica"]),
-        ctrl.Rule(impacto["alto"] & explor["alta"],      urgencia["critica"]),
-    ]
-    sistema = ctrl.ControlSystem(regras)
-    return ctrl.ControlSystemSimulation(sistema), urgencia
+    return simulador
 
 
-def calcular(sim, imp, exp):
-    sim.input["impacto"] = float(imp)
-    sim.input["explorabilidade"] = float(exp)
-    sim.compute()
-    return float(sim.output["urgencia"])
+def calcular_saida(simulador, valor_impacto, valor_explorabilidade):
+    """Calcula a urgencia para duas entradas."""
+    simulador.input["impacto"] = float(valor_impacto)
+    simulador.input["explorabilidade"] = float(
+        valor_explorabilidade
+    )
+    simulador.compute()
+
+    return float(simulador.output["urgencia"])
 
 
-CONFIGS = {
-    "Base: triângulos + centroid":         dict(critica="trimf", defuzz="centroid"),
-    "Abord. A: trapmf crítica + centroid": dict(critica="trapmf", defuzz="centroid"),
-    "Abord. B: triângulos + MOM":          dict(critica="trimf", defuzz="mom"),
-}
-SIMS = {nome: criar_sistema(**cfg) for nome, cfg in CONFIGS.items()}
+# ------------------------------------------------------------
+# 7. TESTE DOS EXTREMOS: CENTROIDE X MOM
+# ------------------------------------------------------------
 
-# ----------------------------------------------------------------------------
-# 2) Desafio dos Extremos
-# ----------------------------------------------------------------------------
-PONTOS = [(0, 0), (50, 5), (100, 10)]
+entradas_teste = [
+    (0, 0),
+    (100, 10),
+    (50, 5),
+    (80, 9),
+]
 
-print("=" * 78)
-print("DESAFIO DOS EXTREMOS  (Impacto %, Explorabilidade) -> Urgência %")
-print("=" * 78)
-print(f"{'Configuração':<40}" + "".join(f"{str(p):>12}" for p in PONTOS))
-for nome, (sim, _) in SIMS.items():
-    vals = [calcular(sim, i, e) for i, e in PONTOS]
-    print(f"{nome:<40}" + "".join(f"{v:>12.2f}" for v in vals))
+print("=" * 60)
+print("COMPARACAO DOS METODOS DE DEFUZZIFICACAO")
+print("=" * 60)
 
-# Gráfico de saída (centroid) nos dois extremos
-sim_base, urg_base = SIMS["Base: triângulos + centroid"]
-for (i, e), nome_arq in [((0, 0), "grafico_saida_0_0.png"), ((100, 10), "grafico_saida_100_10.png")]:
-    v = calcular(sim_base, i, e)
-    urg_base.view(sim=sim_base)
-    plt.title(f"Entradas ({i}, {e}) -> centroide = {v:.2f}%")
-    plt.savefig(os.path.join(SAIDA, nome_arq), dpi=150, bbox_inches="tight")
-    mostrar()
-    plt.close("all")
+for metodo in ["centroid", "mom"]:
+    simulador = criar_sistema(metodo)
 
-# ----------------------------------------------------------------------------
-# 3) Superfície de decisão 3D
-# ----------------------------------------------------------------------------
-g_imp = np.linspace(0, 100, 31)
-g_exp = np.linspace(0, 10, 31)
-GI, GE = np.meshgrid(g_imp, g_exp)
+    print(f"\nMetodo: {metodo.upper()}")
 
+    for i, e in entradas_teste:
+        try:
+            resultado = calcular_saida(simulador, i, e)
+            print(
+                f"Impacto={i:3} | Explorabilidade={e:4} "
+                f"| Urgencia={resultado:.2f}%"
+            )
+        except Exception as erro:
+            print(f"Erro para as entradas ({i}, {e}): {erro}")
 
-def superficie(sim):
-    return np.array([[calcular(sim, i, e) for i in g_imp] for e in g_exp])
+# ------------------------------------------------------------
+# 8. GRAFICO DAS FUNCOES DE PERTINENCIA DA SAIDA
+# ------------------------------------------------------------
 
+plt.figure(figsize=(10, 5))
 
-def salto_max(Z):
-    return max(np.abs(np.diff(Z, axis=0)).max(), np.abs(np.diff(Z, axis=1)).max())
+for nome in ["baixa", "media", "alta", "critica"]:
+    plt.plot(
+        urgencia.universe,
+        urgencia[nome].mf,
+        label=nome.capitalize()
+    )
 
+plt.title("Funcoes de pertinencia da urgencia")
+plt.xlabel("Urgencia (%)")
+plt.ylabel("Grau de pertinencia")
+plt.grid(True, alpha=0.3)
+plt.legend()
+plt.tight_layout()
+plt.savefig(
+    os.path.join(PASTA, "funcoes_pertinencia.png"),
+    dpi=150
+)
+plt.show()
 
-def plot_surf(ax, Z, titulo):
-    s = ax.plot_surface(GI, GE, Z, cmap="viridis", edgecolor="none")
-    ax.set_xlabel("Impacto (%)")
-    ax.set_ylabel("Explorabilidade")
-    ax.set_zlabel("Urgência (%)")
-    ax.set_zlim(0, 100)
-    ax.set_title(titulo, fontsize=10)
-    ax.view_init(elev=28, azim=-125)
-    return s
+# ------------------------------------------------------------
+# 9. SUPERFICIE DE DECISAO 3D
+# ------------------------------------------------------------
 
+# Usamos o metodo centroide para visualizar a superficie.
+simulador = criar_sistema("centroid")
 
-print("\nCalculando superfícies (pode levar alguns segundos)...")
-SUPS = {nome: superficie(sim) for nome, (sim, _) in SIMS.items()}
+valores_impacto = np.arange(0, 101, 2)
+valores_explorabilidade = np.arange(0, 10.01, 0.25)
 
-# Imagem exigida: superficie_decisao.png (centroid)
-fig = plt.figure(figsize=(8, 6))
+X, Y = np.meshgrid(
+    valores_impacto,
+    valores_explorabilidade
+)
+Z = np.zeros_like(X, dtype=float)
+
+for linha in range(Y.shape[0]):
+    for coluna in range(X.shape[1]):
+        Z[linha, coluna] = calcular_saida(
+            simulador,
+            X[linha, coluna],
+            Y[linha, coluna]
+        )
+
+fig = plt.figure(figsize=(12, 8))
 ax = fig.add_subplot(111, projection="3d")
-s = plot_surf(ax, SUPS["Base: triângulos + centroid"], "Superfície de Decisão - Mamdani (centroid)")
-fig.colorbar(s, shrink=0.6, label="Urgência (%)")
+
+superficie = ax.plot_surface(
+    X, Y, Z,
+    cmap="viridis",
+    edgecolor="none",
+    antialiased=True
+)
+
+ax.set_title("Superficie de decisao - Sistema Mamdani")
+ax.set_xlabel("Impacto (%)")
+ax.set_ylabel("Explorabilidade (0 a 10)")
+ax.set_zlabel("Urgencia (%)")
+
+fig.colorbar(
+    superficie,
+    ax=ax,
+    shrink=0.65,
+    label="Urgencia (%)"
+)
+
 plt.tight_layout()
-plt.savefig(os.path.join(SAIDA, "superficie_decisao.png"), dpi=150)
-mostrar()
-plt.close("all")
+plt.savefig(
+    os.path.join(PASTA, "superficie_decisao.png"),
+    dpi=200,
+    bbox_inches="tight"
+)
+plt.show()
 
-# Comparação lado a lado
-fig = plt.figure(figsize=(16, 5))
-for k, (nome, Z) in enumerate(SUPS.items(), 1):
-    plot_surf(fig.add_subplot(1, 3, k, projection="3d"), Z, nome)
+# ------------------------------------------------------------
+# 10. GRAFICO DE SAIDA PARA EXPLORABILIDADE FIXA
+# ------------------------------------------------------------
+
+simulador = criar_sistema("centroid")
+impactos = np.arange(0, 101, 1)
+saidas = []
+
+for valor in impactos:
+    saidas.append(calcular_saida(simulador, valor, 5))
+
+plt.figure(figsize=(10, 5))
+plt.plot(impactos, saidas, color="blue")
+plt.title("Urgencia em funcao do impacto (explorabilidade = 5)")
+plt.xlabel("Impacto (%)")
+plt.ylabel("Urgencia (%)")
+plt.grid(True, alpha=0.3)
 plt.tight_layout()
-plt.savefig(os.path.join(SAIDA, "superficie_comparacao.png"), dpi=130)
-mostrar()
-plt.close("all")
+plt.savefig(
+    os.path.join(PASTA, "grafico_saida.png"),
+    dpi=150
+)
+plt.show()
 
-print("\nSUAVIDADE (maior salto entre vizinhos da grade 31x31; menor = mais suave)")
-for nome, Z in SUPS.items():
-    print(f"{nome:<40} min={Z.min():6.2f}  max={Z.max():6.2f}  salto_max={salto_max(Z):6.2f}")
+# ------------------------------------------------------------
+# 11. CRIACAO AUTOMATICA DO RELATORIO MARKDOWN
+# ------------------------------------------------------------
 
-print("\nArquivos salvos em", os.path.abspath(SAIDA))
+relatorio = """# Aula 10 - Motor de Inferencia Mamdani
 
+## 1. Desafio dos extremos
+
+O centroide calcula o centro de gravidade da area fuzzy agregada.
+Por isso, o resultado pode ficar afastado de 0% e 100%, mesmo
+quando as entradas estao nos extremos.
+
+A saida depende das funcoes de pertinencia, das regras ativadas
+e do formato da regiao fuzzy resultante.
+
+## 2. Abordagem A - trapezio na urgencia critica
+
+Foi utilizada uma funcao trapezoidal na borda superior para
+concentrar o maximo de pertinencia em 100%. Isso altera a geometria
+da saida fuzzy, mas nao garante, por si so, que o centroide seja
+exatamente 100%.
+
+## 3. Abordagem B - MOM
+
+O metodo MOM (Mean of Maximum) calcula a media dos valores de
+saida que apresentam o maior grau de pertinencia.
+
+Se o maximo ocorrer exclusivamente em 100%, o MOM pode retornar
+100%. Se houver varios pontos maximos, retorna a media deles.
+
+O MOM pode perder suavidade porque considera apenas os pontos
+de pertinencia maxima e ignora parte da geometria da area.
+
+## 4. Matriz de regras 3 x 3
+
+| Impacto / Explorabilidade | Baixa | Moderada | Alta |
+|---|---|---|---|
+| Baixo | Urgencia Baixa | Urgencia Baixa | Urgencia Media |
+| Medio | Urgencia Media | Urgencia Alta | Urgencia Alta |
+| Alto | Urgencia Critica | Urgencia Critica | Urgencia Critica |
+
+## 5. Analise da superficie 3D
+
+A superficie representa como a urgencia muda conforme o impacto
+e a explorabilidade variam. Regioes mais elevadas correspondem
+a maiores urgencias.
+
+A continuidade visual depende da sobreposicao das funcoes de
+pertinencia e da combinacao das regras. Mudancas de inclinacao
+podem ocorrer nas transicoes entre categorias fuzzy.
+
+## 6. Conclusao
+
+A abordagem mais adequada depende do objetivo. O centroide costuma
+ser preferivel quando se deseja uma resposta gradual baseada na
+area fuzzy. O MOM pode atingir um extremo quando o maximo da
+pertinencia ocorre somente nesse extremo, mas nao garante uma
+transicao suave nem garante os extremos em toda configuracao.
+
+Os valores numericos finais devem ser registrados a partir da
+execucao do programa no ambiente utilizado.
+"""
+
+arquivo_relatorio = os.path.join(PASTA, "resultados_aula10.md")
+
+with open(arquivo_relatorio, "w", encoding="utf-8") as arquivo:
+    arquivo.write(relatorio)
+
+print("\nArquivos gerados na pasta:", PASTA)
+print("- superficie_decisao.png")
+print("- funcoes_pertinencia.png")
+print("- grafico_saida.png")
+print("- resultados_aula10.md")
