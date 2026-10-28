@@ -252,6 +252,8 @@ EXERCÍCIO 02
 
 RESPOSTA 
 
+*******OBSERVAÇÃO: CÓDIGO DO TESTE DA UTI ESTA EM ANEXO**********
+
 <img width="985" height="278" alt="image" src="https://github.com/user-attachments/assets/a0297bf3-832c-486e-8324-adbae38e73ae" />
 
 <img width="890" height="454" alt="image" src="https://github.com/user-attachments/assets/d5f6b09a-ed95-493f-b418-09283fdde7cb" />
