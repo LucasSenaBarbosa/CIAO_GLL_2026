@@ -245,5 +245,17 @@ print(re.findall(r'^LIMITE_.*$', t, flags=re.M))
 !pytest -s test_fuzzy_engine.py
 
 !pytest -q --cov=engine --cov=model --cov-report=term-missing test_fuzzy_engine.py
-<img width="733" height="321" alt="image" src="https://github.com/user-attachments/assets/930c527b-8ebe-4649-8f9a-9cccb6d3c01c" />
+
+------------------------------------------------------------------------------------------------------------------------
+
+EXERCÍCIO 02 
+
+RESPOSTA 
+
+<img width="985" height="278" alt="image" src="https://github.com/user-attachments/assets/a0297bf3-832c-486e-8324-adbae38e73ae" />
+
+<img width="890" height="454" alt="image" src="https://github.com/user-attachments/assets/d5f6b09a-ed95-493f-b418-09283fdde7cb" />
+
+
+
 
