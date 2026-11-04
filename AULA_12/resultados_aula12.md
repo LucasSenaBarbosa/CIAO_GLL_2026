@@ -90,7 +90,7 @@ Latência: 54.52 ms
 
 EXERCÍCIO 02
 
-Resposta: 
+Resposta: Triagem de Incidentes SOC
 
 ==========================================================
 n_gen  |  n_eval  | n_nds  |      eps      |   indicator  
