@@ -1,8 +1,6 @@
 Exercício 01 
 
-Resposta : 
-
-SERVIDORES CLOUD
+Resposta : SERVIDORES CLOUD
 
 Solução 1
 Custo: R$ 15.00
