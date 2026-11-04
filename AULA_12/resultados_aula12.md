@@ -266,8 +266,131 @@ Resposta:
 <img width="698" height="470" alt="image" src="https://github.com/user-attachments/assets/3654c874-5ca0-4cd3-bf0a-6b209829c5e6" />
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
+EXERCÍCIO 05 
 
+Resposta: MACHINE LEARNING
 
+Solucao 1
+Erro de previsao: 0.496298
+Tempo de inferencia: 5.20 ms
+
+Solucao 2
+Erro de previsao: 0.007244
+Tempo de inferencia: 105.95 ms
+
+Solucao 3
+Erro de previsao: 0.237398
+Tempo de inferencia: 5.42 ms
+
+Solucao 4
+Erro de previsao: 0.353524
+Tempo de inferencia: 5.28 ms
+
+Solucao 5
+Erro de previsao: 0.402220
+Tempo de inferencia: 5.25 ms
+
+Solucao 6
+Erro de previsao: 0.296148
+Tempo de inferencia: 5.34 ms
+
+Solucao 7
+Erro de previsao: 0.010931
+Tempo de inferencia: 22.75 ms
+
+Solucao 8
+Erro de previsao: 0.315174
+Tempo de inferencia: 5.32 ms
+
+Solucao 9
+Erro de previsao: 0.108166
+Tempo de inferencia: 5.93 ms
+
+Solucao 10
+Erro de previsao: 0.008607
+Tempo de inferencia: 49.20 ms
+
+Solucao 11
+Erro de previsao: 0.148997
+Tempo de inferencia: 5.67 ms
+
+Solucao 12
+Erro de previsao: 0.058478
+Tempo de inferencia: 6.71 ms
+
+Solucao 13
+Erro de previsao: 0.020395
+Tempo de inferencia: 9.90 ms
+
+Solucao 14
+Erro de previsao: 0.200928
+Tempo de inferencia: 5.50 ms
+
+Solucao 15
+Erro de previsao: 0.059369
+Tempo de inferencia: 6.68 ms
+
+Solucao 16
+Erro de previsao: 0.009117
+Tempo de inferencia: 39.66 ms
+
+Solucao 17
+Erro de previsao: 0.008134
+Tempo de inferencia: 63.60 ms
+
+Solucao 18
+Erro de previsao: 0.007892
+Tempo de inferencia: 70.76 ms
+
+Solucao 19
+Erro de previsao: 0.007818
+Tempo de inferencia: 73.86 ms
+
+Solucao 20
+Erro de previsao: 0.014043
+Tempo de inferencia: 17.88 ms
+
+Solucao 21
+Erro de previsao: 0.009966
+Tempo de inferencia: 29.55 ms
+
+Solucao 22
+Erro de previsao: 0.437824
+Tempo de inferencia: 5.24 ms
+
+Solucao 23
+Erro de previsao: 0.009719
+Tempo de inferencia: 32.10 ms
+
+Solucao 24
+Erro de previsao: 0.007645
+Tempo de inferencia: 90.38 ms
+
+Solucao 25
+Erro de previsao: 0.008345
+Tempo de inferencia: 55.68 ms
+
+Solucao 26
+Erro de previsao: 0.007647
+Tempo de inferencia: 81.61 ms
+
+Solucao 27
+Erro de previsao: 0.007446
+Tempo de inferencia: 92.60 ms
+
+Solucao 28
+Erro de previsao: 0.475707
+Tempo de inferencia: 5.22 ms
+
+Solucao 29
+Erro de previsao: 0.008199
+Tempo de inferencia: 59.93 ms
+
+Solucao 30
+Erro de previsao: 0.007343
+Tempo de inferencia: 99.08 ms
+
+<img width="817" height="490" alt="image" src="https://github.com/user-attachments/assets/2ba4fa11-00a5-4419-aa27-5b17dae0a1b4" />
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
