@@ -202,4 +202,61 @@ Objetivos (Custo, Tempo de Resposta):
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
+EXERCÍCIO 03
+
+Resposta: LOGÍSTICA DE DRONES
+
+Solução 1
+Tempo: 12.50
+Custo: 702.02
+CO2: 96.74
+
+Solução 2
+Tempo: 100.00
+Custo: 258.32
+CO2: 3.02
+
+Solução 3
+Tempo: 100.00
+Custo: 60.00
+CO2: 15.00
+
+Solução 4
+Tempo: 100.00
+Custo: 260.00
+CO2: 3.00
+
+Solução 5
+Tempo: 12.50
+Custo: 690.01
+CO2: 119.97
+
+Solução 6
+Tempo: 12.50
+Custo: 889.96
+CO2: 24.00
+
+Solução 7
+Tempo: 68.62
+Custo: 71.24
+CO2: 21.86
+
+Solução 8
+Tempo: 18.94
+Custo: 336.18
+CO2: 68.93
+
+Solução 9
+Tempo: 79.33
+Custo: 93.30
+CO2: 12.21
+
+Solução 10
+Tempo: 15.32
+Custo: 488.27
+CO2: 78.95
+
+<img width="705" height="628" alt="image" src="https://github.com/user-attachments/assets/948ea26d-b813-4512-b242-995ed3bdf12f" />
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
 
