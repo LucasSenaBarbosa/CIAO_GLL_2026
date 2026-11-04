@@ -276,4 +276,125 @@ EXERCÍCIO 06
 
 Resposta: 
 
+--- Soluções Viáveis Encontradas ---
+Solução 1: Potência = 10.00 kW, Temp = 15.00 °C
+         Tempo de Recarga = 299.99 min, Desgaste = 23.72 unidades
+
+Solução 2: Potência = 150.00 kW, Temp = 15.00 °C
+         Tempo de Recarga = 20.00 min, Desgaste = 1377.85 unidades
+
+Solução 3: Potência = 15.01 kW, Temp = 15.00 °C
+         Tempo de Recarga = 199.88 min, Desgaste = 43.62 unidades
+
+Solução 4: Potência = 13.30 kW, Temp = 15.02 °C
+         Tempo de Recarga = 225.49 min, Desgaste = 36.44 unidades
+
+Solução 5: Potência = 27.25 kW, Temp = 15.00 °C
+         Tempo de Recarga = 110.09 min, Desgaste = 106.68 unidades
+
+Solução 6: Potência = 34.04 kW, Temp = 15.00 °C
+         Tempo de Recarga = 88.14 min, Desgaste = 148.94 unidades
+
+Solução 7: Potência = 10.72 kW, Temp = 15.25 °C
+         Tempo de Recarga = 279.75 min, Desgaste = 26.77 unidades
+
+Solução 8: Potência = 29.26 kW, Temp = 15.00 °C
+         Tempo de Recarga = 102.54 min, Desgaste = 118.70 unidades
+
+Solução 9: Potência = 45.48 kW, Temp = 15.00 °C
+         Tempo de Recarga = 65.96 min, Desgaste = 230.07 unidades
+
+Solução 10: Potência = 121.61 kW, Temp = 15.00 °C
+         Tempo de Recarga = 24.67 min, Desgaste = 1005.77 unidades
+
+Solução 11: Potência = 21.37 kW, Temp = 15.00 °C
+         Tempo de Recarga = 140.42 min, Desgaste = 74.07 unidades
+
+Solução 12: Potência = 133.18 kW, Temp = 15.00 °C
+         Tempo de Recarga = 22.53 min, Desgaste = 1152.67 unidades
+
+Solução 13: Potência = 96.09 kW, Temp = 15.00 °C
+         Tempo de Recarga = 31.22 min, Desgaste = 706.44 unidades
+
+Solução 14: Potência = 15.67 kW, Temp = 15.00 °C
+         Tempo de Recarga = 191.40 min, Desgaste = 46.54 unidades
+
+Solução 15: Potência = 59.10 kW, Temp = 15.00 °C
+         Tempo de Recarga = 50.76 min, Desgaste = 340.80 unidades
+
+Solução 16: Potência = 23.40 kW, Temp = 15.00 °C
+         Tempo de Recarga = 128.18 min, Desgaste = 84.93 unidades
+
+Solução 17: Potência = 86.56 kW, Temp = 15.02 °C
+         Tempo de Recarga = 34.66 min, Desgaste = 604.96 unidades
+
+Solução 18: Potência = 11.11 kW, Temp = 15.00 °C
+         Tempo de Recarga = 269.93 min, Desgaste = 27.79 unidades
+
+Solução 19: Potência = 36.79 kW, Temp = 15.25 °C
+         Tempo de Recarga = 81.54 min, Desgaste = 170.21 unidades
+
+Solução 20: Potência = 71.37 kW, Temp = 15.00 °C
+         Tempo de Recarga = 42.04 min, Desgaste = 452.18 unidades
+
+Solução 21: Potência = 79.50 kW, Temp = 15.00 °C
+         Tempo de Recarga = 37.74 min, Desgaste = 531.60 unidades
+
+Solução 22: Potência = 12.49 kW, Temp = 15.00 °C
+         Tempo de Recarga = 240.12 min, Desgaste = 33.12 unidades
+
+Solução 23: Potência = 17.02 kW, Temp = 15.00 °C
+         Tempo de Recarga = 176.31 min, Desgaste = 52.64 unidades
+
+Solução 24: Potência = 75.54 kW, Temp = 15.00 °C
+         Tempo de Recarga = 39.72 min, Desgaste = 492.39 unidades
+
+Solução 25: Potência = 52.22 kW, Temp = 15.14 °C
+         Tempo de Recarga = 57.45 min, Desgaste = 285.67 unidades
+
+Solução 26: Potência = 50.92 kW, Temp = 15.56 °C
+         Tempo de Recarga = 58.92 min, Desgaste = 282.77 unidades
+
+Solução 27: Potência = 116.37 kW, Temp = 15.00 °C
+         Tempo de Recarga = 25.78 min, Desgaste = 941.55 unidades
+
+Solução 28: Potência = 126.99 kW, Temp = 15.00 °C
+         Tempo de Recarga = 23.62 min, Desgaste = 1073.24 unidades
+
+Solução 29: Potência = 11.69 kW, Temp = 15.00 °C
+         Tempo de Recarga = 256.68 min, Desgaste = 29.97 unidades
+
+Solução 30: Potência = 19.57 kW, Temp = 15.00 °C
+         Tempo de Recarga = 153.26 min, Desgaste = 64.96 unidades
+
+Solução 31: Potência = 40.51 kW, Temp = 15.00 °C
+         Tempo de Recarga = 74.06 min, Desgaste = 193.37 unidades
+
+Solução 32: Potência = 11.91 kW, Temp = 15.57 °C
+         Tempo de Recarga = 251.82 min, Desgaste = 32.00 unidades
+
+Solução 33: Potência = 136.43 kW, Temp = 15.00 °C
+         Tempo de Recarga = 21.99 min, Desgaste = 1195.12 unidades
+
+Solução 34: Potência = 84.07 kW, Temp = 15.00 °C
+         Tempo de Recarga = 35.69 min, Desgaste = 578.17 unidades
+
+Solução 35: Potência = 42.12 kW, Temp = 15.00 °C
+         Tempo de Recarga = 71.22 min, Desgaste = 205.06 unidades
+
+Solução 36: Potência = 66.76 kW, Temp = 15.00 °C
+         Tempo de Recarga = 44.94 min, Desgaste = 409.13 unidades
+
+Solução 37: Potência = 12.99 kW, Temp = 15.00 °C
+         Tempo de Recarga = 230.93 min, Desgaste = 35.12 unidades
+
+Solução 38: Potência = 126.44 kW, Temp = 15.00 °C
+         Tempo de Recarga = 23.73 min, Desgaste = 1066.34 unidades
+
+Solução 39: Potência = 23.06 kW, Temp = 15.13 °C
+         Tempo de Recarga = 130.08 min, Desgaste = 83.78 unidades
+
+Solução 40: Potência = 109.61 kW, Temp = 15.00 °C
+         Tempo de Recarga = 27.37 min, Desgaste = 860.73 unidades
+
 
