@@ -259,7 +259,7 @@ CO2: 78.95
 
 EXERCÍCIO 04
 
-Resposta: 
+Resposta: Seleção de Portfólio de Investimentos
 
 <img width="698" height="470" alt="image" src="https://github.com/user-attachments/assets/3654c874-5ca0-4cd3-bf0a-6b209829c5e6" />
 
@@ -394,7 +394,7 @@ Tempo de inferencia: 99.08 ms
 
 EXERCÍCIO 06
 
-Resposta: 
+Resposta: Desafio Integrado com Restrições
 
 --- Soluções Viáveis Encontradas ---
 Solução 1: Potência = 10.00 kW, Temp = 15.00 °C
