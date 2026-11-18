@@ -1,1 +1,13 @@
+EXERCICIO 1: Variaveis Inteiras na Pratica (SOC Autonomo)
+Objetivo: Configurar o NSGA-II com amostragem, cruzamento e mutacao inteiros, 
+usando RoundingRepair para evitar fracoes de servidores/analistas.
+
+Resposta: 
+Amostra de 5 solucoes inteiras encontradas (Pods, Analistas):
+Pods: 30 | Analistas: 15 => Latencia:  23.33ms | Custo: R$ 1215.00
+Pods:  1 | Analistas:  1 => Latencia: 550.00ms | Custo: R$  63.00
+Pods:  2 | Analistas:  1 => Latencia: 350.00ms | Custo: R$  81.00
+Pods:  3 | Analistas:  1 => Latencia: 283.33ms | Custo: R$  99.00
+Pods:  4 | Analistas:  1 => Latencia: 250.00ms | Custo: R$ 117.00
+
 
