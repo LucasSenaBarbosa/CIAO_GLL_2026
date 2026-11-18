@@ -23,4 +23,16 @@ Dessa forma, o algoritmo NSGA-II consegue trabalhar com soluções compatíveis 
 
 -----------------------------------------------------------------------------------
 
+EXERCICIO 3: Operadores Geneticos (Exploracao vs. Explotacao)
+Objetivo: Comparar visualmente duas configuracoes do NSGA-II: alta mutacao/baixa
+          pressao (exploracao ampla) vs. baixa mutacao/alta pressao (convergencia).
 
+Resposta: 
+
+Neste experimento comparou duas configurações do algoritmo NSGA-II durante 20 gerações, a configuração A utilizou uma probabilidade de mutação de 50% e parâmetros eta=5 nos operadores SBX e PM, favorecendo uma exploração mais ampla do espaço de soluções,
+a configuração B utilizou uma probabilidade de mutação de 5% e parâmetros eta=30, favorecendo alterações mais concentradas e uma busca mais refinada.
+Ao analisar o gráfico, observamos que a Configuração A apresentou maior dispersão dos pontos, enquanto a Configuração B apresentou maior concentração em determinadas regiões.
+
+***Concluímos que os parâmetros dos operadores genéticos influenciam diretamente a diversidade e o comportamento da busca evolutiva. A exploração permite investigar diferentes possibilidades, enquanto a explotação favorece o refinamento das soluções encontradas.
+
+-----------------------------------------------------------------------------------
