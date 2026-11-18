@@ -10,6 +10,16 @@ Pods:  2 | Analistas:  1 => Latencia: 350.00ms | Custo: R$  81.00
 Pods:  3 | Analistas:  1 => Latencia: 283.33ms | Custo: R$  99.00
 Pods:  4 | Analistas:  1 => Latencia: 250.00ms | Custo: R$ 117.00
 
+a) A diferenca pratica observada entre variaveis continuas e inteiras
+       (uso de IntegerRandomSampling e RoundingRepair).
+
+Resposta: 
+
+As variáveis contínuas permitem trabalhar com valores decimais ou fracionados, como 2,5 e 3,7. Já as variáveis inteiras permitem somente números inteiros, como 2, 3 e 4.
+Para garantir esse comportamento, foram utilizados dois operadores:
+IntegerRandomSampling: responsável por gerar a população inicial utilizando valores inteiros.
+RoundingRepair: responsável por arredondar os valores fracionados que podem surgir durante os processos de cruzamento e mutação do algoritmo genético.
+Dessa forma, o algoritmo NSGA-II consegue trabalhar com soluções compatíveis com as necessidades reais do problema.
 
 -----------------------------------------------------------------------------------
 
