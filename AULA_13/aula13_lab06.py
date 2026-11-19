@@ -196,24 +196,3 @@ Original file is located at
 #
 
 !python aula13_lab06.py
-
-"""
-### c) Escala hospitalar recomendada pelo MCDM no Exercício 6
-
-Foi utilizado o método PseudoWeights para selecionar uma
-solução da fronteira de Pareto, considerando os seguintes pesos:
-
-- Custo do plantão: 40%.
-- Tempo de espera: 60%.
-
-A escala hospitalar recomendada foi:
-
-- Médicos plantonistas: 17
-- Enfermeiros: 32
-- Custo do plantão: R$ 34800.00
-- Tempo médio de espera: 18.09 minutos.
-
-A solução escolhida respeitou a restrição estabelecida
-no exercício, mantendo o tempo médio de espera inferior
-ou igual a 25 minutos.
-"""
