@@ -36,3 +36,29 @@ Ao analisar o gráfico, observamos que a Configuração A apresentou maior dispe
 ***Concluímos que os parâmetros dos operadores genéticos influenciam diretamente a diversidade e o comportamento da busca evolutiva. A exploração permite investigar diferentes possibilidades, enquanto a explotação favorece o refinamento das soluções encontradas.
 
 -----------------------------------------------------------------------------------
+
+
+### c) Escala hospitalar recomendada pelo MCDM no Exercício 6
+
+Foi utilizado o método PseudoWeights para selecionar uma
+solução da fronteira de Pareto, considerando os seguintes pesos:
+
+- Custo do plantão: 40%.
+- Tempo de espera: 60%.
+
+A escala hospitalar recomendada foi:
+
+- Médicos plantonistas: 17
+- Enfermeiros: 32
+- Custo do plantão: R$ 34800.00
+- Tempo médio de espera: 18.09 minutos.
+
+A solução escolhida respeitou a restrição estabelecida
+no exercício, mantendo o tempo médio de espera inferior
+ou igual a 25 minutos.
+
+
+-----------------------------------------------------------------------------------
+
+
+
